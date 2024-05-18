@@ -7,6 +7,9 @@ import CustomButton from "../CustomButton";
 import { Box, Chip, Stack } from "@mui/material";
 import { ProductDataProps } from "../../types";
 import { Link } from "react-router-dom";
+import QuantityCounter from "../../pages/SingleProduct/QuantityCounter";
+import { RootState } from "../../redux/store";
+import { useSelector } from "react-redux";
 
 const styles = {
     productCard: {
@@ -32,19 +35,33 @@ const url = "https://www.bortakvall.se";
 
 
 
-const ProductCard: React.FC<{ 
+
+interface PropsTypes {
     data: ProductDataProps;
     singleProduct: boolean;
-}> = ({ data, singleProduct }) => { 
-
+    handleAddtoCart: (args: ProductDataProps) => void;
+    counter: number;
+    setCounter: (value: number) => void;
+  }
+  
+  const ProductCard: React.FC<PropsTypes> = ({
+    data,
+    singleProduct,
+    handleAddtoCart,
+    counter,
+    setCounter,
+  }) => {
+    const product = useSelector((state: RootState) =>
+      state.cart.products.find((p) => p.id === data.id)
+    );
     return (
         <Card sx={styles.productCard}>
             <CardMedia 
                 sx={{ height: 300 }} 
                 image={
                     singleProduct
-                    ? `${url}${data?.images?.large}`
-                    : `${url}${data?.images?.thumbnail}`
+                        ? `${url}${data?.images?.large}`
+                        : `${url}${data?.images?.thumbnail}`
                 } 
                 title={data.name}
             />
@@ -52,7 +69,6 @@ const ProductCard: React.FC<{
                 <Typography variant="h5" component="div" gutterBottom>
                     {data?.name}
                 </Typography>
-                {/*  */}
                 {  singleProduct && (
                     <Typography variant="body1" color="text.secondary" gutterBottom>
                         {data?.description}
@@ -89,10 +105,11 @@ const ProductCard: React.FC<{
                     variant="contained"
                     size="medium"
                     sx={styles.actionButton}
+                    onClick={() => handleAddtoCart(data)}
                 />
 
 
-                {!singleProduct && (
+                {!singleProduct ? (
                     <Link 
                         to={`/product/${data?.id}`}
                         style={styles.linkActionButton}
@@ -105,6 +122,12 @@ const ProductCard: React.FC<{
                             sx={styles.actionButton}
                         />
                     </Link>
+                ) : (
+                    <QuantityCounter
+                        data={data}
+                        counter={counter}
+                        setCounter={setCounter}
+                    />
                 )}
             </CardActions>
         </Card>

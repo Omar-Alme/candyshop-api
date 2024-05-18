@@ -1,32 +1,23 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_BACKEND_URL;
 type PayLoadTypes<T> = {
     [key: string]: T;
 };
 
-const makeGetRequest = (
-    url: string,
-    config: AxiosRequestConfig<any> | undefined
-) => {
+const makeGetRequest = (url: string) => {
     return axios
-        .get(API_URL + url, {
-            ...config,
-        })
+        .get(API_URL + url)
         .then((response) => response)
         .catch((error) => error.response);
 };
 
 function makePostRequest<T>(
     url: string,
-    bodyFormData: PayLoadTypes<T> | FormData | string | null,
-    config: AxiosRequestConfig<any> | undefined
+    bodyFormData: PayLoadTypes<T> | FormData | string | null
 ) {
     return axios
-        .post(API_URL + url, bodyFormData, {
-            ...config,
-            withCredentials: true,
-        })
+        .post(API_URL + url, bodyFormData, {})
         .then((response) => response)
         .catch((error) => error.response);
 }
