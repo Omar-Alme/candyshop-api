@@ -3,7 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { ProductDataProps } from "../types";
 
 interface CartState {
-    products: ProductDataProps[];
+    products: ExtendedProductDataProps[];
     cartquantity: number;
     subtotal: number;
     total: number;
@@ -12,9 +12,9 @@ interface CartState {
 }
 
 interface ExtendedProductDataProps extends ProductDataProps {
-    quantity?: number;
-    subtotal?: number;
-    total?: number;
+    quantity: number;
+    subtotal: number;
+    total: number;
 }
 
 
@@ -60,14 +60,14 @@ const cartSlice = createSlice({
                 0
             );
 
-            state.deliverycharges = subtotal < 2500 ? 200 : 0;
+            state.deliverycharges = state.subtotal < 2500 ? 200 : 0;
             state.total = state.subtotal + state.deliverycharges;
         },
         updateProductQuantity: (
             state,
             action: PayloadAction<{
-                id: string;
-                quantity: any;
+                id: number;
+                quantity: number;
             }>
         ) => {
             const { id, quantity } = action.payload;
@@ -95,7 +95,7 @@ const cartSlice = createSlice({
     removeProduct: (
       state,
       action: PayloadAction<{
-        id: string;
+        id: number;
       }>
     ) => {
       const { id } = action.payload;

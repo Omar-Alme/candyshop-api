@@ -6,9 +6,9 @@ import { urls } from "../../utils/urls";
 import Loader from "../../components/Loader";
 import { Box, Grid } from "@mui/material";
 import ProductCard from "../../components/ProductCard";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addProduct } from "../../redux/cartSlice";
-import { RootState } from "../../redux/store";
+// import { RootState } from "../../redux/store";
 import QuantityCounter from "./QuantityCounter";
 
 
@@ -23,7 +23,7 @@ const SingleProduct = () => {
   const [quantity, setQuantity] = useState<number>(1);
 
   const dispatch = useDispatch();
-  const cart = useSelector((state: RootState) => state.cart);
+  // const cart = useSelector((state: RootState) => state.cart);
 
    const fetchSingleProduct = async () => {
     setLoading(true);
@@ -60,7 +60,7 @@ const SingleProduct = () => {
       })
     );
   };
-  console.log("cart", cart);
+  // console.log("cart", cart);
 
   return (
    <Box py={5} display="flex" justifyContent="center">
@@ -70,11 +70,11 @@ const SingleProduct = () => {
           <Grid container spacing={2} justifyContent="center">
             <Grid item xs={6} md={3} display="flex" justifyContent="center">
               <ProductCard 
-              data={singleProductData} 
-              singleProduct={true} 
-              handleAddtoCart={handleAddtoCart}
-              counter={quantity}
-              setCounter={setQuantity}
+                data={singleProductData} 
+                singleProduct={true} 
+                handleAddtoCart={handleAddtoCart}
+                counter={quantity}
+                setCounter={setQuantity}
               />
             </Grid>
           </Grid>

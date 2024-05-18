@@ -5,6 +5,8 @@ import Loader from "../../components/Loader";
 import { ProductDataProps } from "../../types";
 import { Box, Grid, Typography } from "@mui/material";
 import ProductCard from "../../components/ProductCard";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../redux/cartSlice";
 
 
 const Products = () => {
@@ -13,6 +15,8 @@ const Products = () => {
     }>();
 
     const [loading, setLoading] = useState<boolean>(false);
+    const [quantity, setQuantity] = useState<number>(1);
+    const dispatch = useDispatch();
 
     const fetchProducts = async () => {
         setLoading(true);
@@ -36,6 +40,17 @@ const Products = () => {
         fetchProducts();
     }, []);
 
+    const handleAddtoCart = (data: ProductDataProps) => {
+        dispatch(
+            addProduct({
+                ...data,
+                quantity,
+                total: 0,
+                subtotal: 0,
+            })
+        );
+    };
+
     return (
         <Box py={5} display="flex" justifyContent="center">
             {loading ? (
@@ -55,7 +70,13 @@ const Products = () => {
                                 display="flex" 
                                 justifyContent="center"
                             >
-                                <ProductCard data={data} singleProduct={false} />
+                                <ProductCard 
+                                    data={data} 
+                                    singleProduct={false}
+                                    handleAddtoCart={handleAddtoCart}
+                                    counter={quantity}
+                                    setCounter={setQuantity} 
+                                    />
                             </Grid>
                         ))
                     ) : (
