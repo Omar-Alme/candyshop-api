@@ -11,7 +11,7 @@ function Header() {
         <AppBar position="static" color="primary" elevation={0}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Typography variant="h6" noWrap component="a" sx={{
+                    <Typography variant="h6" href="/" noWrap component="a" sx={{
                         mr: 2,
                         fontFamily: 'monospace',
                         fontWeight: '700',
@@ -19,6 +19,7 @@ function Header() {
                         color: 'inherit',
                         textDecoration: 'none',
                         flexGrow: 1,
+                        cursor: 'pointer'
                     }}>
                         Candy Heaven
                     </Typography>

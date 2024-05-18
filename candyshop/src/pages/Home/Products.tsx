@@ -40,8 +40,13 @@ const Products = () => {
                      productData.data &&
                      productData?.data?.length > 0 ? (
                         productData?.data.map((data: ProductDataProps) => (
-                            <Grid item key={data.id} xs={6} md={3} display="flex" justifyContent="center">
-                                <ProductCard data={data} />
+                            <Grid 
+                                item key={data.id} 
+                                xs={6} md={3} 
+                                display="flex" 
+                                justifyContent="center"
+                            >
+                                <ProductCard data={data} singleProduct={false} />
                             </Grid>
                         ))
                     ) : (
