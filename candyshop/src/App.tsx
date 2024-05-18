@@ -4,9 +4,6 @@ import Checkout from './pages/Checkout'
 import OrderConfirmation from './pages/OrderConfirmation'
 import SingleProduct from './pages/SingleProduct'
 
-import './App.css'
-
-
 function App() {
 
   return (
