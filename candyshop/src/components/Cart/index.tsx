@@ -39,7 +39,7 @@ const Cart = () => {
     const cart = useSelector((state: RootState) => state.cart);
 
     const handleProductRemove = (id: number) => {
-        dispatch(removeProduct(id));
+        dispatch(removeProduct({ id }));
     };
 
 
