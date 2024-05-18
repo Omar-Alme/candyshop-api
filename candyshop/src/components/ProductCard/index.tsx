@@ -18,20 +18,18 @@ const styles = {
   },
 };
 
+const url = "https://www.bortakvall.se";
+
+
+
 const ProductCard: React.FC<{ data: ProductDataProps; }> = ({ data }) => {
     console.log("url", `www.bortakvall.se${data.images.thumbnail}`);
 
     return (
         <Card sx={styles.productCard}>
-            <img 
-                src={`www.bortakvall.se${data.images.thumbnail}`} 
-                alt="Candy Image"
-                style={{ width: "100%", height: "auto" }}
-                crossOrigin="anonymous" 
-            />
             <CardMedia 
-                sx={{ height: 140 }} 
-                image={`www.bortakvall.se${data.images.thumbnail}`} 
+                sx={{ height: 300 }} 
+                image={`${url}${data.images.thumbnail}`} 
                 title={data.name} 
             />
             <CardContent>
