@@ -110,7 +110,8 @@ const Products = () => {
                                 <Grid 
                                     item 
                                     key={data.id} 
-                                    xs={6} 
+                                    xs={12}
+                                    sm={6} 
                                     md={3} 
                                     display="flex" 
                                     justifyContent="center"
@@ -145,7 +146,8 @@ const Products = () => {
                                 <Grid 
                                     item 
                                     key={data.id} 
-                                    xs={6} 
+                                    xs={12}
+                                    sm={6} 
                                     md={3} 
                                     display="flex" 
                                     justifyContent="center"

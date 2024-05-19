@@ -40,7 +40,6 @@ const SingleProduct = () => {
     } catch (err) {
       console.log(err);
       setLoading(false);
-    
     }
   };
 
@@ -58,15 +57,21 @@ const SingleProduct = () => {
       })
     );
   };
-  // console.log("cart", cart);
 
   return (
     <Box py={5} display="flex" justifyContent="center">
         {loading ? (
           <Loader />
         ) : singleProductData && singleProductData?.id ? (
-            <Grid container spacing={2} justifyContent="center">
-              <Grid item xs={6} md={3} display="flex" justifyContent="center">
+            <Grid container justifyContent="center">
+              <Grid 
+                item 
+                xs={12}
+                sm={6} 
+                md={3} 
+                display="flex" 
+                justifyContent="center"
+              >
                 <ProductCard 
                   data={singleProductData} 
                   singleProduct={true} 
@@ -77,7 +82,7 @@ const SingleProduct = () => {
               </Grid>
             </Grid>
         ) : (
-          "No product found."
+          "No product found"
         )}
     </Box>
   );

@@ -16,6 +16,7 @@ const CustomButton = ({
     endIcon,
     type,
     form,
+    fullWidth,
 }: CustomButtonProps) => {
     const mergedSx = { ...sx };
     return (
@@ -33,6 +34,7 @@ const CustomButton = ({
         type={type}
         endIcon={endIcon}
         form={form}
+        fullWidth={fullWidth}
       >
         {title}
       </Button>

@@ -20,6 +20,12 @@ export interface ProductDataProps {
     }[];
 }
 
+export interface TagsProps {
+    id: number;
+    name: string;
+    slug: string;
+}
+
 
 export interface CustomButtonProps {
     title: string | ReactNode;
@@ -44,4 +50,5 @@ export interface CustomButtonProps {
     endIcon?: ReactNode;
     type?: "button" | "submit" | "reset" | undefined;
     form?: string;
+    fullWidth?: boolean;
 }    

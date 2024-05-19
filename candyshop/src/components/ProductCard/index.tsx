@@ -13,7 +13,6 @@ import { useSelector } from "react-redux";
 
 const styles = {
     productCard: {
-        maxWidth: 345,
         width: "100%",
         minHeight: "100%",
         display: "flex",
