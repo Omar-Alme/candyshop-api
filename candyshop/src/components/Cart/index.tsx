@@ -6,7 +6,7 @@ import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { removeProduct } from "../../redux/cartSlice";
-import QuantityCounter from "../../pages/SingleProduct/QuantityCounter";
+import QuantityCounter from "../QuantityCounter";
 
 
 const styles = {

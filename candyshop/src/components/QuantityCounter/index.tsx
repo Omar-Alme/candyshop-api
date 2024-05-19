@@ -33,9 +33,6 @@ const QuantityCounter: React.FC<ExtendedQuantityCounterProps> = (props) => {
     }
   };
 
-  // const handleIncrement = () => {
-  //   setCounter(counter + 1);
-  // };
 
   const handleDecrement = (id: number) => {
     if (product && product?.quantity > 1) {
@@ -52,11 +49,6 @@ const QuantityCounter: React.FC<ExtendedQuantityCounterProps> = (props) => {
     }
   };
 
-  // const handleDecrement = () => {
-  //   if (counter > 1) {
-  //     setCounter(counter - 1);
-  //   }
-  // };
 
   return (
     <ButtonGroup size="small">
@@ -65,6 +57,7 @@ const QuantityCounter: React.FC<ExtendedQuantityCounterProps> = (props) => {
         variant="outlined"
         onClick={() => handleDecrement(data.id)}
         sx={{ borderColor: "black" }}
+        disabled={product && product?.quantity === 1}
       />
 
       <CustomButton
@@ -83,6 +76,7 @@ const QuantityCounter: React.FC<ExtendedQuantityCounterProps> = (props) => {
         variant="outlined"
         onClick={() => handleIncrement(data.id)}
         sx={{ borderColor: "black" }}
+        disabled={product && product?.quantity === data.stock_quantity}
       />
     </ButtonGroup>
   );

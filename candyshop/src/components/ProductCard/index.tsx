@@ -7,7 +7,7 @@ import CustomButton from "../CustomButton";
 import { Box, Chip, Stack } from "@mui/material";
 import { ProductDataProps } from "../../types";
 import { Link } from "react-router-dom";
-import QuantityCounter from "../../pages/SingleProduct/QuantityCounter";
+import QuantityCounter from "../QuantityCounter";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
 
@@ -106,6 +106,7 @@ interface PropsTypes {
                     size="medium"
                     sx={styles.actionButton}
                     onClick={() => handleAddtoCart(data)}
+                    disabled={product && product.quantity === data.stock_quantity}
                 />
 
 
