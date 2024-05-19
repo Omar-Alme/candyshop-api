@@ -53,7 +53,7 @@ const cartSlice = createSlice({
                 (acc, product) => acc + product.quantity,
                 0
             );
-            state.cartquantity = state.products.reduce(
+            state.subtotal = state.products.reduce(
                 (acc, product) => acc + product.subtotal,
                 0
             );
