@@ -22,4 +22,4 @@ function makePostRequest<T>(
         .catch((error) => error.response);
 }
 
-export { makeGetRequest, makePostRequest};
+export { makeGetRequest, makePostRequest };

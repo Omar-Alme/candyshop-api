@@ -8,8 +8,6 @@ import { Box, Grid } from "@mui/material";
 import ProductCard from "../../components/ProductCard";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../redux/cartSlice";
-// import { RootState } from "../../redux/store";
-import QuantityCounter from "./QuantityCounter";
 
 
 
@@ -63,25 +61,25 @@ const SingleProduct = () => {
   // console.log("cart", cart);
 
   return (
-   <Box py={5} display="flex" justifyContent="center">
-      {loading ? (
-        <Loader />
-      ) : singleProductData && singleProductData?.id ? (
-          <Grid container spacing={2} justifyContent="center">
-            <Grid item xs={6} md={3} display="flex" justifyContent="center">
-              <ProductCard 
-                data={singleProductData} 
-                singleProduct={true} 
-                handleAddtoCart={handleAddtoCart}
-                counter={quantity}
-                setCounter={setQuantity}
-              />
+    <Box py={5} display="flex" justifyContent="center">
+        {loading ? (
+          <Loader />
+        ) : singleProductData && singleProductData?.id ? (
+            <Grid container spacing={2} justifyContent="center">
+              <Grid item xs={6} md={3} display="flex" justifyContent="center">
+                <ProductCard 
+                  data={singleProductData} 
+                  singleProduct={true} 
+                  handleAddtoCart={handleAddtoCart}
+                  counter={quantity}
+                  setCounter={setQuantity}
+                />
+              </Grid>
             </Grid>
-          </Grid>
-      ) : (
-        "No product found."
-      )}
-   </Box>
+        ) : (
+          "No product found."
+        )}
+    </Box>
   );
 };
 

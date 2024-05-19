@@ -11,27 +11,27 @@ import QuantityCounter from "../QuantityCounter";
 
 const styles = {
     img: {
-      width: "150px",
-      height: "100%",
-      borderRadius: "10px",
+        width: "150px",
+        height: "100%",
+        borderRadius: "10px",
     },
     mobileImg: {
-      height: "100%",
-      width: "100%",
-      borderRadius: "10px",
+        height: "100%",
+        width: "100%",
+        borderRadius: "10px",
     },
     colorBox: {
-      width: "25px",
-      height: "25px",
-      borderRadius: "7px",
+        width: "25px",
+        height: "25px",
+        borderRadius: "7px",
     },
-  };
-  
-  type cartDrawer = string;
+};
+
+type cartDrawer = string;
 
 const Cart = () => {
     const [drawerState, setDrawerState] = React.useState({
-      right: false,
+        right: false,
     });
 
     const [quantity, setQuantity] = React.useState<number>(1);
@@ -203,28 +203,28 @@ const Cart = () => {
         </Box>
     );
 
-  return (
+return (
     <React.Fragment>
-      <Badge 
-        badgeContent={cart.cartquantity}
-        onClick={() => openDrawer("right")}
-        onMouseEnter={() => openDrawer("right")} 
-        color="primary" 
-        sx={{ p: 0, cursor: "pointer" }}
-        >
-            <ShoppingBagIcon />
-      </Badge>
+        <Badge 
+            badgeContent={cart.cartquantity}
+            onClick={() => openDrawer("right")}
+            onMouseEnter={() => openDrawer("right")} 
+            color="primary" 
+            sx={{ p: 0, cursor: "pointer" }}
+            >
+                <ShoppingBagIcon />
+        </Badge>
 
-      <Drawer
-        anchor={"right"}
-        open={drawerState["right"]}
-        onClose={() => closeDrawer("right")}
-        onMouseLeave={() => closeDrawer("right")}
-      >
-        {cartList("right")}
-      </Drawer>
+        <Drawer
+            anchor={"right"}
+            open={drawerState["right"]}
+            onClose={() => closeDrawer("right")}
+            onMouseLeave={() => closeDrawer("right")}
+        >
+            {cartList("right")}
+        </Drawer>
     </React.Fragment>
-  );
+    );
 };
 
 export default Cart;

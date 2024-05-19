@@ -106,7 +106,10 @@ interface PropsTypes {
                     size="medium"
                     sx={styles.actionButton}
                     onClick={() => handleAddtoCart(data)}
-                    disabled={product && product.quantity === data.stock_quantity}
+                    disabled={
+                        (product && product.quantity === data.stock_quantity) ||
+                        data.stock_quantity === null
+                    }
                 />
 
 
