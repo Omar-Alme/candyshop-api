@@ -1,3 +1,4 @@
 export const urls = {
-    products: '/products',
+    products: "/products",
+    productsTags: "/tags",
 };
