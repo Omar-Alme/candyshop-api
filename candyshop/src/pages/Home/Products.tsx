@@ -104,7 +104,8 @@ const Products = () => {
                     >
                         {productsByTag &&
                         productsByTag.data &&
-                        productsByTag?.data?.length > 0 ? (
+                        productsByTag?.data?.products &&
+                        productsByTag?.data?.products?.length > 0 ? (
                             productsByTag?.data?.products.map((data: any) => (
                                 <Grid 
                                     item 
