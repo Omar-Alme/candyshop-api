@@ -8,7 +8,6 @@ interface CartState {
     subtotal: number;
     total: number;
     deliverycharges: number;
-    instructions: string;
 }
 
 interface ExtendedProductDataProps extends ProductDataProps {
@@ -26,7 +25,6 @@ const cartSlice = createSlice({
         subtotal: 0,
         total: 0,
         deliverycharges: 0,
-        instructions: "",
     } as CartState,
 
     reducers: {
@@ -127,16 +125,7 @@ const cartSlice = createSlice({
         subtotal: 0,
         total: 0,
         deliverycharges: 0,
-        instructions: "",
       };
-    },
-    addInstructions: (
-      state,
-      action: PayloadAction<{
-        instructions: string;
-      }>
-    ) => {
-      state.instructions = action.payload.instructions;
     },
   },
 });
@@ -145,7 +134,6 @@ export const {
     addProduct,
     updateProductQuantity,
     removeProduct,
-    addInstructions,
     clearCart,
 } = cartSlice.actions;
 export default cartSlice.reducer;

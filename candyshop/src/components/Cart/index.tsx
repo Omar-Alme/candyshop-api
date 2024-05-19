@@ -95,8 +95,8 @@ const Cart = () => {
             </Stack>
 
             {cart.cartquantity > 0 ? (
-                cart.products.map((product, index) => (
-                    <Box key={index}>
+                cart.products.map((product) => (
+                    <Box key={product.id}>
                         <Box display={{ xs: "block", sm: "none" }} mt={4}>
                             <img
                                 src={`${"http://www.bortakvall.se"}${product.images.large}`}
