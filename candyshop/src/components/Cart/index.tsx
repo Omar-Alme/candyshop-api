@@ -33,8 +33,9 @@ const Cart = () => {
     const [drawerState, setDrawerState] = React.useState({
         right: false,
     });
-
     const [quantity, setQuantity] = React.useState<number>(1);
+    
+    
     const dispatch = useDispatch();
     const cart = useSelector((state: RootState) => state.cart);
 
@@ -52,9 +53,8 @@ const Cart = () => {
     };
 
     const handleToCart = (val: string) => {
-        console.log(val);
         window.location.href = val;
-        setDrawerState({ ...drawerState, ["right"]: false });
+        setDrawerState({ ...drawerState, right: false });
     };
 
     const cartList = (anchor: cartDrawer) => (
@@ -73,7 +73,8 @@ const Cart = () => {
                 <Stack direction="row">
                     <Typography
                         variant="h5"
-                        color="primary"
+                        color=""
+                        fontWeight="bold"
                     >
                         Your Cart
                     </Typography>
@@ -87,8 +88,10 @@ const Cart = () => {
                 </Stack>
 
                 <CustomButton
-                title="close"
+                title="x"
                 variant="outlined"
+                size="small"
+                color="error"
                 sx={{ borderRadius: "10px", textTransform: "capitalize" }}
                 onClick={() => closeDrawer("right")}
                 />
@@ -123,7 +126,7 @@ const Cart = () => {
                                     display="flex"
                                     justifyContent="flex-end"
                                 >
-                                    {`${product.subtotal} Kr`}
+                                    {`${product.subtotal} kr`}
                                 </Typography>
 
                                 <CustomButton
@@ -184,8 +187,8 @@ const Cart = () => {
                         alignItems="center"
                         pt={2}
                         >
-                            <Typography variant="body2">Total</Typography>
-                            <Typography variant="h5">{`${cart.total} kr`}</Typography>
+                            <Typography variant="body2" fontWeight="bold">Final Total</Typography>
+                            <Typography variant="h6" fontWeight="bold">{`${cart.total} kr`}</Typography>
                         </Stack>
                     </Box>
 
@@ -193,8 +196,9 @@ const Cart = () => {
                         <CustomButton
                             title="Proceed to Checkout"
                             variant="contained"
+                            color="warning"
                             size="large"
-                            sx={{ width: "100%", textTransform: "capitalize", borderRadius: "10px"}}
+                            sx={{ width: "100%", textTransform: "capitalize", borderRadius: "10px",}}
                             onClick={() => handleToCart("/checkout")}
                         />
                     </Box>
@@ -209,7 +213,7 @@ return (
             badgeContent={cart.cartquantity}
             onClick={() => openDrawer("right")}
             onMouseEnter={() => openDrawer("right")} 
-            color="primary" 
+            color="warning" 
             sx={{ p: 0, cursor: "pointer" }}
             >
                 <ShoppingBagIcon />

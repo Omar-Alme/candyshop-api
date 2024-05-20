@@ -21,9 +21,9 @@ const SingleProduct = () => {
   const [quantity, setQuantity] = useState<number>(1);
 
   const dispatch = useDispatch();
-  // const cart = useSelector((state: RootState) => state.cart);
 
-   const fetchSingleProduct = async () => {
+
+  const fetchSingleProduct = async () => {
     setLoading(true);
 
     try {
@@ -68,7 +68,7 @@ const SingleProduct = () => {
                 item 
                 xs={12}
                 sm={6} 
-                md={3} 
+                md={4} 
                 display="flex" 
                 justifyContent="center"
               >

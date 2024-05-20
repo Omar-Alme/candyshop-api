@@ -7,7 +7,7 @@ const Loader = () => {
             display: 'flex',
             justifyContent: 'center',
         }}>
-            <CircularProgress />
+            <CircularProgress color="secondary" />
         </Box>
     );
 };

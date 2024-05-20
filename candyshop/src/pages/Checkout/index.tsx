@@ -133,7 +133,7 @@ const Checkout = () => {
       );
 
       if (response.data.status === "success") {
-        toast.success("Your order have successfully created", {
+        toast.success("Your order has been successfully created!", {
           position: "top-right",
           autoClose: 5000,
         });
@@ -409,8 +409,8 @@ const Checkout = () => {
                       justifyContent="space-between"
                       pb={2}
                     >
-                      <Typography variant="body1">Total</Typography>
-                      <Typography variant="body1" fontWeight="500">
+                      <Typography variant="body1" fontWeight="bold">Final Total</Typography>
+                      <Typography variant="body1" fontWeight="bold">
                         {cart.total}
                       </Typography>
                     </Stack>
@@ -420,12 +420,13 @@ const Checkout = () => {
                     title="confirm order"
                     variant="contained"
                     size="large"
+                    color="warning"
                     sx={{ width: "100%", textTransform: "capitalize" }}
                     type="submit"
                     form="myForm"
                     endIcon={
                       orderLoading && (
-                        <CircularProgress color="warning" size="1.3rem" />
+                        <CircularProgress color="error" size="1.3rem" />
                       )
                     }
                   />

@@ -6,7 +6,7 @@ import Cart from "../Cart";
 
 function Header() {
     return (
-        <AppBar position="static" color="primary" elevation={0}>
+        <AppBar position="static" color="error" elevation={0}>
             <Container maxWidth="xl">
                 <Toolbar 
                 disableGutters 
@@ -19,10 +19,9 @@ function Header() {
                         letterSpacing: '0.3rem',
                         color: 'inherit',
                         textDecoration: 'none',
-                        // flexGrow: 1,
                         cursor: 'pointer'
                     }}>
-                        Candy Heaven
+                        <span style={{ color: "#fff" }}>Candy</span>Heaven
                     </Typography>
                     <Cart />
                     

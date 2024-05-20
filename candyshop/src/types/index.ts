@@ -20,6 +20,14 @@ export interface ProductDataProps {
     }[];
 }
 
+export interface ProductsByTagResponse {
+    id: number;
+    name: string;
+    slug: string;
+    products: ProductDataProps[];
+    status: string;
+}
+
 export interface TagsProps {
     id: number;
     name: string;

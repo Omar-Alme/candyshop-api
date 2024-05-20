@@ -76,7 +76,7 @@ const QuantityCounter: React.FC<ExtendedQuantityCounterProps> = (props) => {
         variant="outlined"
         onClick={() => handleIncrement(data.id)}
         sx={{ borderColor: "black" }}
-        disabled={product && product?.quantity === data.stock_quantity}
+        disabled={product && product.quantity === data.stock_quantity}
       />
     </ButtonGroup>
   );

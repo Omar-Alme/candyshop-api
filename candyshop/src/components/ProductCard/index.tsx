@@ -62,7 +62,7 @@ interface PropsTypes {
                         ? `${url}${data?.images?.large}`
                         : `${url}${data?.images?.thumbnail}`
                 } 
-                title={data.name}
+                title= "Product Image"
             />
             <CardContent>
                 <Typography variant="h5" component="div" gutterBottom>
@@ -74,7 +74,7 @@ interface PropsTypes {
                     </Typography>
                     )}
                 {/* Map Tags */}
-                <Stack direction="row" spacing={1} flexWrap="wrap">
+                <Stack direction="row" flexWrap="wrap">
                     {data?.tags?.map((tag) => (
                         <Box py={1} pr={1} key={tag?.id}>
                             <Chip label={tag.name} variant="outlined" />
@@ -100,9 +100,9 @@ interface PropsTypes {
             <CardActions>
                 <CustomButton
                     title="Add to Cart"
-                    color="primary"
+                    color="warning"
                     variant="contained"
-                    size="medium"
+                    size="small"
                     sx={styles.actionButton}
                     onClick={() => handleAddtoCart(data)}
                     disabled={
@@ -119,9 +119,9 @@ interface PropsTypes {
                     >
                         <CustomButton
                             title="Read More"
-                            color="primary"
-                            variant="contained"
-                            size="medium"
+                            color="warning"
+                            variant="outlined"
+                            size="small"
                             sx={styles.actionButton}
                         />
                     </Link>
